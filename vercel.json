@@ -4,24 +4,17 @@
         {
             "src": "server/server.js",
             "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/",
-            "dest": "server/server.js"
         },
         {
-            "src": "/(.*))",
-            "dest": "server/server.js"
-        },
-        {
-            "src": "/public/(.*)",
-            "dest": "public/$1"
+            "src": "public/**",
+            "use": "@vercel/static"
         }
     ],
-    "public": true,
     "rewrites": [
+        {
+            "source": "/",
+            "destination": "/public/index.html"
+        },
         {
             "source": "/(.*)",
             "destination": "/public/index.html"
@@ -37,5 +30,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
 }
