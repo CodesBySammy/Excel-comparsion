@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Excel Sheet Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Excel Sheet Comparison Tool</h1>
+        
+        <div class="file-upload">
+            <div class="file-input">
+                <label for="file1">First Excel Sheet:</label>
+                <input type="file" id="file1" accept=".xlsx, .xls">
+            </div>
+            
+            <div class="file-input">
+                <label for="file2">Second Excel Sheet:</label>
+                <input type="file" id="file2" accept=".xlsx, .xls">
+            </div>
+            
+            <div class="column-select">
+                <label for="compareColumn">Compare Column:</label>
+                <input type="text" id="compareColumn" placeholder="Registration Number">
+            </div>
+            
+            <button id="compareBtn">Compare Sheets</button>
+        </div>
+        
+        <div class="results">
+            <div class="matched-students">
+                <h2>Matched Students</h2>
+                <table id="matchedTable">
+                    <thead>
+                        <tr>
+                            <th>Registration Number</th>
+                            <!-- Add other columns as needed -->
+                        </tr>
+                    </thead>
+                    <tbody id="matchedStudents"></tbody>
+                </table>
+                <button id="downloadMatched" style="display:none;">Download Matched</button>
+            </div>
+            
+            <div class="unmatched-students">
+                <h2>Unmatched Students</h2>
+                <div class="unmatched-sections">
+                    <div class="unmatched-file1">
+                        <h3>Unmatched from First Sheet</h3>
+                        <table id="unmatchedTable1">
+                            <thead>
+                                <tr>
+                                    <th>Registration Number</th>
+                                    <!-- Add other columns as needed -->
+                                </tr>
+                            </thead>
+                            <tbody id="unmatchedStudents1"></tbody>
+                        </table>
+                        <button id="downloadUnmatched1" style="display:none;">Download Unmatched 1</button>
+                    </div>
+                    
+                    <div class="unmatched-file2">
+                        <h3>Unmatched from Second Sheet</h3>
+                        <table id="unmatchedTable2">
+                            <thead>
+                                <tr>
+                                    <th>Registration Number</th>
+                                    <!-- Add other columns as needed -->
+                                </tr>
+                            </thead>
+                            <tbody id="unmatchedStudents2"></tbody>
+                        </table>
+                        <button id="downloadUnmatched2" style="display:none;">Download Unmatched 2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
