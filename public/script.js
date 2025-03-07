@@ -120,8 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 }
 
+    
+});
 
-    // PWA installation functionality
+  // PWA installation functionality
 let deferredPrompt;
 const installButton = document.getElementById('installButton');
 
@@ -161,6 +163,4 @@ installButton.addEventListener('click', async () => {
 window.addEventListener('appinstalled', () => {
   console.log('PWA was installed');
   installButton.style.display = 'none';
-});
-    
 });
