@@ -107,4 +107,16 @@ document.addEventListener('DOMContentLoaded', () => {
         XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
         XLSX.writeFile(workbook, filename);
     }
+
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      })
+      .catch(error => {
+        console.log('ServiceWorker registration failed: ', error);
+      });
+  });
+}
 });
